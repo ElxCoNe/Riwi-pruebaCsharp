@@ -7,4 +7,8 @@ public class User
     string Document { get; set; }
     string Phone { get; set; }
     string Email { get; set; }
+    
+    
+    //Navigation
+    public ICollection<Reservation> Reservations { get; set; }
 }

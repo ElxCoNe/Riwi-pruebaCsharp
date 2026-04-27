@@ -1,6 +1,8 @@
 namespace PruebaRiwi.Enums;
 
-public class PlaceType
+public enum PlaceType
 {
-    
+    Active,
+    Cancelled,
+    Finished
 }

@@ -1,0 +1,76 @@
+@model PruebaRiwi.Models.Reservation
+
+@{
+    ViewData["Title"] = "Nueva Reserva";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card mt-3">
+            <div class="card-header bg-white">
+                <h4 class="mb-0"><i class="bi bi-calendar-plus"></i> Nueva Reserva</h4>
+            </div>
+            <div class="card-body">
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @ViewBag.Error
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+
+                <form asp-action="Create" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Usuario</label>
+                        <select asp-for="UserId" class="form-select" required>
+                            <option value="">Seleccione un usuario</option>
+                            @if (ViewBag.Users != null)
+                            {
+                                @foreach (var user in (IEnumerable<User>)ViewBag.Users)
+                                {
+                                    <option value="@user.Id">@user.Name - @user.Document</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Espacio Deportivo</label>
+                        <select asp-for="SportPlaceId" class="form-select" required>
+                            <option value="">Seleccione un espacio</option>
+                            @if (ViewBag.SportPlaces != null)
+                            {
+                                @foreach (var place in (IEnumerable<SportPlace>)ViewBag.SportPlaces)
+                                {
+                                    <option value="@place.Id">@place.Name - @place.Type</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fecha</label>
+                        <input asp-for="Date" type="date" class="form-control" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Hora de Inicio</label>
+                            <input asp-for="StartTime" type="time" class="form-control" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Hora de Fin</label>
+                            <input asp-for="EndTime" type="time" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Volver
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Crear Reserva
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

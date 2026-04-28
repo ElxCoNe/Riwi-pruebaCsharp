@@ -1097,12 +1097,15 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="296" parent="1" name="milo_library">
+      <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
+      <LastIntrospectionLevel>3</LastIntrospectionLevel>
+      <LastIntrospectionLocalTimestamp>2026-04-27.22:01:48</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="297" parent="1" name="milo_prueba">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-04-27.21:11:36</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-04-27.22:02:16</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="298" parent="1" name="milo_veterinary">
@@ -1139,5 +1142,408 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <user id="308" parent="1" name="root">
       <Host>localhost</Host>
     </user>
+    <table id="309" parent="296" name="Books">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="310" parent="296" name="Loans">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="311" parent="296" name="Users">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="312" parent="296" name="__EFMigrationsHistory">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="313" parent="297" name="Reservations">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="314" parent="297" name="SportPlaces">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="315" parent="297" name="Users">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="316" parent="297" name="__EFMigrationsHistory">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="317" parent="309" name="Id">
+      <AutoIncrement>2</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="318" parent="309" name="Title">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(150)|0s</StoredType>
+    </column>
+    <column id="319" parent="309" name="Author">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(150)|0s</StoredType>
+    </column>
+    <column id="320" parent="309" name="Quantity">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="321" parent="309" name="Category">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(150)|0s</StoredType>
+    </column>
+    <column id="322" parent="309" name="Status">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="323" parent="309" name="Stock">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="324" parent="309" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="325" parent="309" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="326" parent="310" name="Id">
+      <AutoIncrement>3</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="327" parent="310" name="UserId">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="328" parent="310" name="BookId">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="329" parent="310" name="DateLoan">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="330" parent="310" name="DueDate">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="331" parent="310" name="ReturnDate">
+      <Position>6</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="332" parent="310" name="Status">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <foreign-key id="333" parent="310" name="FK_Loans_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <foreign-key id="334" parent="310" name="FK_Loans_Books_BookId">
+      <ColNames>BookId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableName>Books</RefTableName>
+    </foreign-key>
+    <index id="335" parent="310" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="336" parent="310" name="IX_Loans_UserId">
+      <ColNames>UserId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="337" parent="310" name="IX_Loans_BookId">
+      <ColNames>BookId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="338" parent="310" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="339" parent="311" name="Id">
+      <AutoIncrement>6</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="340" parent="311" name="Name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(125)|0s</StoredType>
+    </column>
+    <column id="341" parent="311" name="LastName">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(125)|0s</StoredType>
+    </column>
+    <column id="342" parent="311" name="Telephone">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="343" parent="311" name="Email">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="344" parent="311" name="CreatedAt">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="345" parent="311" name="UpdatedAt">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <index id="346" parent="311" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="347" parent="311" name="IX_Users_Email">
+      <ColNames>Email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="348" parent="311" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="349" parent="311" name="IX_Users_Email">
+      <UnderlyingIndexName>IX_Users_Email</UnderlyingIndexName>
+    </key>
+    <column id="350" parent="312" name="MigrationId">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(150)|0s</StoredType>
+    </column>
+    <column id="351" parent="312" name="ProductVersion">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <index id="352" parent="312" name="PRIMARY">
+      <ColNames>MigrationId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="353" parent="312" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="354" parent="313" name="Id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="355" parent="313" name="UserId">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="356" parent="313" name="SportPlaceId">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="357" parent="313" name="Date">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="358" parent="313" name="StartTime">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>time(6)|0s</StoredType>
+    </column>
+    <column id="359" parent="313" name="EndTime">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>time(6)|0s</StoredType>
+    </column>
+    <column id="360" parent="313" name="Status">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <foreign-key id="361" parent="313" name="FK_Reservations_Users_UserId">
+      <ColNames>UserId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableName>Users</RefTableName>
+    </foreign-key>
+    <foreign-key id="362" parent="313" name="FK_Reservations_SportPlaces_SportPlaceId">
+      <ColNames>SportPlaceId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableName>SportPlaces</RefTableName>
+    </foreign-key>
+    <index id="363" parent="313" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="364" parent="313" name="IX_Reservations_UserId">
+      <ColNames>UserId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="365" parent="313" name="IX_Reservations_SportPlaceId">
+      <ColNames>SportPlaceId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="366" parent="313" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="367" parent="314" name="Id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="368" parent="314" name="Name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="369" parent="314" name="Type">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="370" parent="314" name="Capacity">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="371" parent="314" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="372" parent="314" name="IX_SportPlaces_Name">
+      <ColNames>Name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="373" parent="314" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="374" parent="314" name="IX_SportPlaces_Name">
+      <UnderlyingIndexName>IX_SportPlaces_Name</UnderlyingIndexName>
+    </key>
+    <column id="375" parent="315" name="Id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="376" parent="315" name="Name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(125)|0s</StoredType>
+    </column>
+    <column id="377" parent="315" name="Document">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="378" parent="315" name="Phone">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="379" parent="315" name="Email">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <index id="380" parent="315" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="381" parent="315" name="IX_Users_Document">
+      <ColNames>Document</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="382" parent="315" name="IX_Users_Email">
+      <ColNames>Email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="383" parent="315" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="384" parent="315" name="IX_Users_Document">
+      <UnderlyingIndexName>IX_Users_Document</UnderlyingIndexName>
+    </key>
+    <key id="385" parent="315" name="IX_Users_Email">
+      <UnderlyingIndexName>IX_Users_Email</UnderlyingIndexName>
+    </key>
+    <column id="386" parent="316" name="MigrationId">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(150)|0s</StoredType>
+    </column>
+    <column id="387" parent="316" name="ProductVersion">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <index id="388" parent="316" name="PRIMARY">
+      <ColNames>MigrationId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="389" parent="316" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

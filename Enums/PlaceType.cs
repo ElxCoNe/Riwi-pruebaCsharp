@@ -2,7 +2,9 @@ namespace PruebaRiwi.Enums;
 
 public enum PlaceType
 {
-    Active,
-    Cancelled,
-    Finished
+    Football,
+    Basketball,
+    Swimming,
+    Tennis,
+    Other
 }

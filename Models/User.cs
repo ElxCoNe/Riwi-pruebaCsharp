@@ -1,12 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace PruebaRiwi.Models;
 
 public class User
 {
-    int Id { get; set; }
-    string Name { get; set; }
-    string Document { get; set; }
-    string Phone { get; set; }
-    string Email { get; set; }
+    public int Id { get; set; }
+    
+    [Required,MaxLength(125)]
+    public string Name { get; set; }
+    
+    [Required,MaxLength(20)]
+    public string Document { get; set; }
+    
+    [Required, MaxLength(20)]
+    public string Phone { get; set; }
+    
+    [Required, MaxLength(255)]
+    [EmailAddress]
+    public string Email { get; set; }
     
     
     //Navigation

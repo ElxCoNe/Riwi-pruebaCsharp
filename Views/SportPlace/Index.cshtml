@@ -1,0 +1,112 @@
+@model IEnumerable<PruebaRiwi.Models.SportPlace>
+
+@{
+    ViewData["Title"] = "Espacios Deportivos";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-building"></i> Espacios Deportivos</h2>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Nuevo Espacio
+    </a>
+</div>
+
+<!-- Filtro por tipo -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form asp-action="FilterByType" method="get" class="d-flex align-items-center gap-3">
+            <label class="form-label mb-0 fw-bold">Filtrar por tipo:</label>
+            <select name="type" class="form-select" style="width: 200px;">
+                <option value="Football">Fútbol</option>
+                <option value="Basketball">Baloncesto</option>
+                <option value="Swimming">Piscina</option>
+                <option value="Tennis">Tenis</option>
+                <option value="Other">Otro</option>
+            </select>
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="bi bi-funnel"></i> Filtrar
+            </button>
+            <a asp-action="Index" class="btn btn-secondary btn-sm">
+                <i class="bi bi-x-circle"></i> Limpiar
+            </a>
+        </form>
+    </div>
+</div>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i> @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Capacidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var place in Model)
+                    {
+                        <tr>
+                            <td>@place.Id</td>
+                            <td>@place.Name</td>
+                            <td>
+                                @switch (place.Type)
+                                {
+                                    case PlaceType.Football:
+                                        <span class="badge bg-success">Fútbol</span>
+                                        break;
+                                    case PlaceType.Basketball:
+                                        <span class="badge bg-warning text-dark">Baloncesto</span>
+                                        break;
+                                    case PlaceType.Swimming:
+                                        <span class="badge bg-info">Piscina</span>
+                                        break;
+                                    case PlaceType.Tennis:
+                                        <span class="badge bg-danger">Tenis</span>
+                                        break;
+                                    default:
+                                        <span class="badge bg-secondary">Otro</span>
+                                        break;
+                                }
+                            </td>
+                            <td>@place.Capacity personas</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@place.Id" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">
+                            No hay espacios deportivos registrados
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

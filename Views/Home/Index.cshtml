@@ -1,8 +1,106 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold mb-3">
+        <i class="bi bi-trophy text-danger"></i> PruebaRiwi
+    </h1>
+    <p class="lead text-muted mb-5">Sistema de gestión de reservas para tu complejo deportivo</p>
+</div>
+
+<!-- Cards principales -->
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 text-center p-4">
+            <div class="card-body">
+                <div class="mb-3">
+                    <i class="bi bi-people-fill text-danger" style="font-size: 3rem;"></i>
+                </div>
+                <h4 class="fw-bold">Usuarios</h4>
+                <p class="text-muted">Registra y administra los usuarios del complejo deportivo de forma rápida y sencilla.</p>
+                <a asp-controller="User" asp-action="Index" class="btn btn-primary mt-2">
+                    <i class="bi bi-arrow-right-circle"></i> Ir a Usuarios
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center p-4">
+            <div class="card-body">
+                <div class="mb-3">
+                    <i class="bi bi-building text-warning" style="font-size: 3rem;"></i>
+                </div>
+                <h4 class="fw-bold">Espacios Deportivos</h4>
+                <p class="text-muted">Gestiona canchas, piscinas y todos los espacios disponibles para reservar.</p>
+                <a asp-controller="SportPlace" asp-action="Index" class="btn btn-primary mt-2">
+                    <i class="bi bi-arrow-right-circle"></i> Ir a Espacios
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center p-4">
+            <div class="card-body">
+                <div class="mb-3">
+                    <i class="bi bi-calendar-check-fill text-success" style="font-size: 3rem;"></i>
+                </div>
+                <h4 class="fw-bold">Reservas</h4>
+                <p class="text-muted">Crea, consulta y administra las reservas evitando conflictos de horarios.</p>
+                <a asp-controller="Reservation" asp-action="Index" class="btn btn-primary mt-2">
+                    <i class="bi bi-arrow-right-circle"></i> Ir a Reservas
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Características -->
+<div class="card mb-5">
+    <div class="card-body p-4">
+        <h3 class="text-center fw-bold mb-4">¿Qué puedes hacer?</h3>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Sin reservas duplicadas</h6>
+                        <p class="text-muted mb-0">El sistema valida que no existan conflictos de horarios en los espacios.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Control de usuarios</h6>
+                        <p class="text-muted mb-0">Registra usuarios sin duplicados por documento o correo electrónico.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Gestión de estados</h6>
+                        <p class="text-muted mb-0">Cada reserva puede ser activa, cancelada o finalizada.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Filtros de búsqueda</h6>
+                        <p class="text-muted mb-0">Filtra reservas por usuario o por espacio deportivo fácilmente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="text-center text-muted py-3">
+    <p class="mb-0">Desarrollado por <strong>Camilo Hernandez</strong> &copy; 2026</p>
 </div>

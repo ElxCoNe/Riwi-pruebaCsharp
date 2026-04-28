@@ -1,0 +1,147 @@
+@model IEnumerable<PruebaRiwi.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-calendar-check"></i> Reservas</h2>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Nueva Reserva
+    </a>
+</div>
+
+<!-- Filtros -->
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <form asp-action="ByUser" method="get" class="d-flex align-items-center gap-2">
+                    <label class="form-label mb-0 fw-bold">Por usuario:</label>
+                    <select name="userId" class="form-select" style="width: 200px;" required>
+                        <option value="">Seleccione</option>
+                        @if (ViewBag.Users != null)
+                        {
+                            @foreach (var user in (IEnumerable<User>)ViewBag.Users)
+                            {
+                                <option value="@user.Id">@user.Name</option>
+                            }
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="bi bi-funnel"></i> Filtrar
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form asp-action="ByPlace" method="get" class="d-flex align-items-center gap-2">
+                    <label class="form-label mb-0 fw-bold">Por espacio:</label>
+                    <select name="placeId" class="form-select" style="width: 200px;" required>
+                        <option value="">Seleccione</option>
+                        @if (ViewBag.SportPlaces != null)
+                        {
+                            @foreach (var place in (IEnumerable<SportPlace>)ViewBag.SportPlaces)
+                            {
+                                <option value="@place.Id">@place.Name</option>
+                            }
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="bi bi-funnel"></i> Filtrar
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-2">
+            <a asp-action="Index" class="btn btn-secondary btn-sm">
+                <i class="bi bi-x-circle"></i> Limpiar filtros
+            </a>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @ViewBag.Error
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @ViewBag.Success
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Espacio</th>
+                    <th>Fecha</th>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var reservation in Model)
+                    {
+                        <tr>
+                            <td>@reservation.Id</td>
+                            <td>@reservation.User?.Name</td>
+                            <td>@reservation.SportPlace?.Name</td>
+                            <td>@reservation.Date.ToString("dd/MM/yyyy")</td>
+                            <td>@reservation.StartTime.ToString("hh:mm tt")</td>
+                            <td>@reservation.EndTime.ToString("hh:mm tt")</td>
+                            <td>
+                                @switch (reservation.Status)
+                                {
+                                    case ReservationStatus.Active:
+                                        <span class="badge bg-success">Activa</span>
+                                        break;
+                                    case ReservationStatus.Cancelled:
+                                        <span class="badge bg-danger">Cancelada</span>
+                                        break;
+                                    case ReservationStatus.Finished:
+                                        <span class="badge bg-secondary">Finalizada</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                @if (reservation.Status == ReservationStatus.Active)
+                                {
+                                    <a asp-action="Cancel" asp-route-id="@reservation.Id" class="btn btn-danger btn-sm"
+                                       onclick="return confirm('¿Está seguro de cancelar esta reserva?')">
+                                        <i class="bi bi-x-circle"></i> Cancelar
+                                    </a>
+                                    <a asp-action="Finish" asp-route-id="@reservation.Id" class="btn btn-secondary btn-sm"
+                                       onclick="return confirm('¿Está seguro de finalizar esta reserva?')">
+                                        <i class="bi bi-check-circle"></i> Finalizar
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="8" class="text-center py-4 text-muted">
+                            No hay reservas registradas
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
